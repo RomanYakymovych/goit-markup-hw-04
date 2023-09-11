@@ -28,8 +28,7 @@ h3,
 h4,
 h5,
 h6,
-ul,
-p {
+ul {
   margin: 0;
   padding: 0;
 }
@@ -483,7 +482,6 @@ footer .container {
   background-color: var(--accent-color);
 
   fill: var(--background-color);
-  background: rgba(255, 255, 255, 0.1);
 
   transition: background-color var(--main-trans-dur) var(--main-trans-time-func);
 }
