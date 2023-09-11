@@ -101,6 +101,9 @@ body {
 
 .header {
   border-bottom: 1px solid var(--accent-text-color);
+  box-shadow:0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 header .container {
@@ -148,6 +151,7 @@ header .container {
   font-weight: 500;
   color: var(--title-text-color);
   text-decoration: none;
+transition: color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .nav-list-link.current {
@@ -202,7 +206,6 @@ header .container {
   margin: 0 auto;
 
   background-image: linear-gradient(
-      to right,
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
@@ -211,6 +214,7 @@ header .container {
   background-position: center;
   background-color: var(--title-text-color);
   text-align: center;
+  background-size: cover;
 }
 
 .hero-title {
@@ -261,11 +265,17 @@ header .container {
   padding: 24px 100px;
   margin-bottom: 8px;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg{
+    width: 64px;
+    height: 64px;
 }
 
 .features-icon {
-  width: 64px;
-  height: 64px;
   display: block;
 }
 
