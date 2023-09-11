@@ -269,6 +269,7 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 112px;
 }
 
 .features-icon {
@@ -395,20 +396,20 @@ header .container {
 }
 
 .customers-list-link {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: 1px solid var(--svg-fill-color);
   border-radius: 4px;
   padding: 16px 31px;
 
   color: var(--svg-fill-color);
 
-  transition: color var(--main-trans-dur) var(--main-trans-time-func),
-    border var(--main-trans-dur) var(--main-trans-time-func);
+  transition: color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .customers-icon {
-  width: 104px;
-  height: 56px;
   fill: currentColor;
 }
 
@@ -427,7 +428,7 @@ header .container {
   background-color: var(--title-text-color);
 }
 
-.footer-inner {
+footer .container {
   display: flex;
   gap: 0 120px;
 }
