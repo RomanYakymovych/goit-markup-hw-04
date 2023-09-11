@@ -406,7 +406,8 @@ header .container {
 
   color: var(--svg-fill-color);
 
-  transition: color var(--main-trans-dur) var(--main-trans-time-func);
+  transition: color var(--main-trans-dur) var(--main-trans-time-func),
+  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-icon {
@@ -430,6 +431,7 @@ header .container {
 
 footer .container {
   display: flex;
+  align-items: baseline;
   gap: 0 120px;
 }
 
@@ -440,7 +442,8 @@ footer .container {
 
 .footer-text {
   max-width: 264px;
-
+  margin-bottom: 16px;
+  margin-right: 120px;
   color: var(--accent-text-color);
 }
 
@@ -458,13 +461,22 @@ footer .container {
 
 .footer-socials-list {
   display: flex;
-  gap: 0 16px;
+  gap: 16px;
+}
+
+.footer-socials-list-item{
+  width: 40px;
+  height: 40px;
 }
 
 .footer-socials-link {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px;
   border-radius: 50%;
+  height: 100%;
+  background-color: var(--accent-color);
 
   fill: var(--background-color);
   background: rgba(255, 255, 255, 0.1);
@@ -479,8 +491,6 @@ footer .container {
 
 .footer-socials-icon {
   display: block;
-  width: 24px;
-  height: 24px;
 }
 
 /* =============== Modal window =============== */
