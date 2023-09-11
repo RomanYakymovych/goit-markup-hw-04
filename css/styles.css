@@ -103,7 +103,7 @@ body {
   border-bottom: 1px solid var(--accent-text-color);
 }
 
-.header-inner {
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,7 +111,8 @@ body {
 
 .navigation {
   display: flex;
-  gap: 0 76px;
+  align-items: center;
+  gap: 40px
 }
 
 .logo {
@@ -142,13 +143,11 @@ body {
   position: relative;
   display: inline-block;
   padding-top: 24px;
-  padding-bottom: 28px;
+  padding-bottom: 24px;
 
   font-weight: 500;
   color: var(--title-text-color);
   text-decoration: none;
-
-  transition: color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .nav-list-link.current {
