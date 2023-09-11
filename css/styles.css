@@ -12,8 +12,12 @@
   --main-hover-color: #404bbf;
   --background-color: #f4f4fd;
   --svg-fill-color: #8e8f99;
+
   --main-font-font-family: "Roboto", sans-serif;
   --secondary-font-font-family: "Raleway", sans-serif;
+
+  --main-trans-dur: 250ms;
+  --main-trans-time-func: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* =============== Reset =============== */
@@ -113,7 +117,7 @@ body {
 .logo {
   display: inline-block;
   padding-top: 24px;
-  padding-bottom: 24px;
+  padding-bottom: 28px;
 
   font-family: var(--secondary-font-font-family);
   font-weight: 800;
@@ -135,17 +139,32 @@ body {
 }
 
 .nav-list-link {
+  position: relative;
   display: inline-block;
   padding-top: 24px;
-  padding-bottom: 24px;
+  padding-bottom: 28px;
 
   font-weight: 500;
   color: var(--title-text-color);
   text-decoration: none;
+
+  transition: color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .nav-list-link.current {
   color: var(--main-hover-color);
+}
+
+.nav-list-link.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(100% - 3px);
+
+  width: 100%;
+  height: 4px;
+  background-color: var(--main-hover-color);
+  border-radius: 2px;
 }
 
 .nav-list-link:hover,
@@ -166,6 +185,8 @@ body {
   color: var(--primary-text-color);
   text-decoration: none;
   font-style: normal;
+
+  transition: color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .contacts-list-link:hover,
@@ -179,7 +200,6 @@ body {
   padding-top: 188px;
   padding-bottom: 188px;
   max-width: 1440px;
-  height: 600px;
   margin: 0 auto;
 
   background-image: linear-gradient(
@@ -212,6 +232,8 @@ body {
   color: var(--white-color);
   background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: background-color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .primary-button:hover,
@@ -260,7 +282,8 @@ body {
 
 .examples-list {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .examples-title,
@@ -326,6 +349,8 @@ body {
   border-radius: 50%;
 
   background-color: var(--accent-color);
+
+  transition: background-color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .team-social-icon {
@@ -372,6 +397,9 @@ body {
   padding: 16px 31px;
 
   color: var(--svg-fill-color);
+
+  transition: color var(--main-trans-dur) var(--main-trans-time-func),
+    border var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .customers-icon {
@@ -435,6 +463,8 @@ body {
 
   fill: var(--background-color);
   background: rgba(255, 255, 255, 0.1);
+
+  transition: background-color var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .footer-socials-link:hover,
@@ -446,6 +476,70 @@ body {
   display: block;
   width: 24px;
   height: 24px;
+}
+
+/* =============== Modal window =============== */
+
+.backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(46, 47, 66, 0.4);
+
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--main-trans-dur) var(--main-trans-time-func),
+    visibility var(--main-trans-dur) var(--main-trans-time-func);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.7);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 408px;
+  min-height: 576px;
+
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--main-trans-dur) var(--main-trans-time-func);
+}
+
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #e7e9fc;
+}
+
+.modal-close-icon {
+  width: 8px;
+  height: 8px;
 }
 
 /* portfolio.html */
@@ -469,6 +563,10 @@ body {
 
   background-color: var(--background-color);
   color: var(--accent-color);
+
+  transition: background-color var(--main-trans-dur) var(--main-trans-time-func),
+    color var(--main-trans-dur) var(--main-trans-time-func),
+    box-shadow var(--main-trans-dur) var(--main-trans-time-func);
 }
 
 .secondary-button:hover,
@@ -496,12 +594,42 @@ body {
   display: inline-block;
 
   text-decoration: none;
+
+  transition: box-shadow var(--main-trans-dur) var(--main-trans-time-func);
+}
+
+.portfolio-card-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px 0;
+  transform: translateY(100%);
+
+  background-color: var(--accent-color);
+
+  transition: transform var(--main-trans-dur) var(--main-trans-time-func);
+}
+
+.portfolio-card-text {
+  color: var(--background-color);
 }
 
 .portfolio-list-link:hover,
 .portfolio-list-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-list-link:hover .portfolio-card-overlay,
+.portfolio-list-link:focus .portfolio-card-overlay {
+  transform: translateY(0);
+}
+
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
 }
 
 .portfolio-img {
