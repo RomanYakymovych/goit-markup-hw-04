@@ -28,6 +28,7 @@ h3,
 h4,
 h5,
 h6,
+p,
 ul {
   margin: 0;
   padding: 0;
@@ -572,114 +573,152 @@ footer .container {
 
 /* portfolio.html */
 
-.portfolio {
+.portfolio-page {
   padding-top: 96px;
-  padding-bottom: 120px;
 }
 
-.categories-list {
+.portfolio-page-item . {
+  text-align: left;
+}
+
+.main-text{
+  color: var(--primary-text-color);
+}
+
+.section-sub-title{
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--title-text-color);
+}
+
+.filter {
   margin-bottom: 72px;
   display: flex;
   justify-content: center;
   gap: 24px;
 }
 
-.secondary-button {
+.filter-button {
+  background-color: var(--accent-text-color);
+  color: var(--accent-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
   padding: 12px 24px;
   border: 1px solid var(--accent-text-color);
-  border-radius: 4px;
-
-  background-color: var(--background-color);
-  color: var(--accent-color);
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.secondary-button:hover,
-.secondary-button:focus {
-  border: 1px solid transparent;
-
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
+.filter-button:hover,
+.filter-button:focus {
   background-color: var(--main-hover-color);
   color: var(--white-color);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
-.portfolio-list {
-  justify-content: center;
+.portfolio-page-list {
   display: flex;
   flex-wrap: wrap;
   gap: 48px 24px;
 }
 
-.portfolio-list li {
-  flex-basis: calc((100% - 48px) / 3);
+.portfolio-page-item {
+  width: calc((100% - 24px * 2) / 3);
 }
 
-.portfolio-list-link {
+.portfolio-page-item .link {
   display: block;
-
-  text-decoration: none;
-
-  transition: box-shadow var(--main-trans-dur) var(--main-trans-time-func);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-card-overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  padding: 40px 32px 0;
-  transform: translateY(100%);
-
-  background-color: var(--accent-color);
-
-  transition: transform var(--main-trans-dur) var(--main-trans-time-func);
+.portfolio-page-item-info {
+  padding: 32px 16px;
+  background: var(--white-color);
+  border: 1px solid var(--accent-text-color);
+  border-top: none;
 }
 
-.portfolio-card-text {
-  color: var(--background-color);
+.portfolio-page-item-info .section-sub-title {
+  margin-bottom: 8px;
 }
 
-.portfolio-list-link:hover,
-.portfolio-list-link:focus {
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-
-.portfolio-list-link:hover .portfolio-card-overlay,
-.portfolio-list-link:focus .portfolio-card-overlay {
-  transform: translateY(0%);
-}
-
-.portfolio-thumb {
+.item-img-thumb {
   position: relative;
   overflow: hidden;
 }
 
-.portfolio-img {
-  display: block;
+.portfolio-page-overlay {
+  position: absolute;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  padding: 40px 32px;
+  top: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  padding: 40px 32px;
+  height: 100%;
+  width: 100%;
+  color: var(--background-color);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translatey(100%);
+  -webkit-transform: translatey(100%);
+  -moz-transform: translatey(100%);
+  -ms-transform: translatey(100%);
+  -o-transform: translatey(100%);
 }
 
-.portfolio-item-descr {
-  padding: 32px 16px;
-  border-right: 1px solid var(--accent-text-color);
-  border-left: 1px solid var(--accent-text-color);
-  border-bottom: 1px solid var(--accent-text-color);
+.link{
+  text-decoration: none;
 }
 
-.portfolio-item-title {
-  margin-bottom: 8px;
-
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
+.portfolio-page-item .link:hover,
+.portfolio-page-item .link:focus {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-item-text {
-  color: var(--primary-text-color);
+.portfolio-page-item .link:hover .portfolio-page-overlay,
+.portfolio-page-item .link:focus .portfolio-page-overlay {
+  transform: translatey(0%);
+  -webkit-transform: translatey(0%);
+  -moz-transform: translatey(0%);
+  -ms-transform: translatey(0%);
+  -o-transform: translatey(0%);
 }
