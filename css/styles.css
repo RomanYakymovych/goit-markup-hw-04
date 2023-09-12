@@ -441,8 +441,9 @@ footer .container {
 
 .footer-text {
   max-width: 264px;
-  margin-bottom: 16px;
   margin-right: 120px;
+  margin-bottom: 16px;
+
   color: var(--accent-text-color);
 }
 
@@ -652,7 +653,7 @@ footer .container {
 
 .portfolio-list-link:hover .portfolio-card-overlay,
 .portfolio-list-link:focus .portfolio-card-overlay {
-  transform: translateY(0);
+  transform: translateY(0%);
 }
 
 .portfolio-thumb {
