@@ -437,14 +437,13 @@ footer .container {
 
 .footer .logo {
   padding-top: 8px;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .footer-text {
   max-width: 264px;
   margin-right: 120px;
   margin-bottom: 16px;
-
   color: var(--accent-text-color);
 }
 
